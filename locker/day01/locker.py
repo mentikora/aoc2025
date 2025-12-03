@@ -74,21 +74,3 @@ class BreakLocker:
 
     def increase_count(self) -> None:
         self.count = self.count + 1
-
-
-locker = BreakLocker()
-
-with open("C:/projects/aoc2025/01_day/input.txt", "r") as file:
-    for row in file:
-        direction = row[0]
-        value = int(row[1:].strip())
-
-        if direction == "L":
-            result = locker.calculate_left(value)
-        else:
-            result = locker.calculate_right(value)
-
-        if result == 0:
-            locker.increase_count()
-
-    print(locker.count)
